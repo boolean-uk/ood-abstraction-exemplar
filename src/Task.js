@@ -33,7 +33,7 @@ class Task {
   }
 
   setInComplete() {
-    this.#status = "complete"
+    this.#status = "incomplete"
   }
 
   hasDueDate() {
