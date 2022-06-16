@@ -33,7 +33,7 @@ describe("TaskList", () => {
       due2DaysAgo
     ]
 
-    console.log('due 2 days ago status', due2DaysAgo.getStatus())
+    //console.log('due 2 days ago status', due2DaysAgo.getStatus())
 
     const myOverdueTasks = taskList.getOverdueTasks()
     expect(myOverdueTasks).toEqual(expected)
