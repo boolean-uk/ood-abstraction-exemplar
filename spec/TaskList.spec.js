@@ -5,7 +5,9 @@ describe("TaskList", () => {
   let taskList
 
   todayPlusDays = (days) => {
-    return new Date(new Date().getTime() +  24 * 60 * 60 * 1000 * days)
+    const thisDate = new Date(new Date().getTime() +  24 * 60 * 60 * 1000 * days)
+    //console.log('this date', thisDate)
+    return new Date(thisDate)
   }
 
   beforeEach(() => {
@@ -19,7 +21,7 @@ describe("TaskList", () => {
     taskList.addTask(new Task(null, "no due date"))
 
     const dueYesterdayButComplete = new Task(todayPlusDays(-1), "due yesterday but complete")
-    dueYesterdayButComplete.status = "complete"
+    dueYesterdayButComplete.setComplete()
     taskList.addTask(dueYesterdayButComplete)
 
     //These are overdue
@@ -33,6 +35,9 @@ describe("TaskList", () => {
       due2DaysAgo
     ]
 
-    expect(taskList.getOverdueTasks()).toEqual(expected)
+    const myOverdueTasks = taskList.getOverdueTasks()
+    console.log('overdue', myOverdueTasks)
+
+    expect(myOverdueTasks).toEqual(expected)
   })
 })

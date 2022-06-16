@@ -1,15 +1,18 @@
 class TaskList {
+
+  #tasks
+
   constructor() {
-    this.tasks = []
+    this.#tasks = []
   }
 
   addTask(task) {
-    this.tasks.push(task)
+    this.#tasks.push(task)
   }
 
   getOverdueTasks() {
     const overdueTasks = []
-    for (const task of this.tasks) {
+    for (const task of this.#tasks) {
       // it's not been completed
       if (!task.isComplete()) {
         // it has a due date
