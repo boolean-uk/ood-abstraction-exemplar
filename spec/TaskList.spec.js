@@ -19,7 +19,7 @@ describe("TaskList", () => {
     taskList.addTask(new Task(null, "no due date"))
 
     const dueYesterdayButComplete = new Task(todayPlusDays(-1), "due yesterday but complete")
-    dueYesterdayButComplete.status = "complete"
+    dueYesterdayButComplete.setComplete()
     taskList.addTask(dueYesterdayButComplete)
 
     //These are overdue
@@ -33,6 +33,9 @@ describe("TaskList", () => {
       due2DaysAgo
     ]
 
-    expect(taskList.getOverdueTasks()).toEqual(expected)
+    //console.log('due 2 days ago status', due2DaysAgo.getStatus())
+
+    const myOverdueTasks = taskList.getOverdueTasks()
+    expect(myOverdueTasks).toEqual(expected)
   })
 })
